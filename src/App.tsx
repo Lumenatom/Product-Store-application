@@ -1,9 +1,19 @@
-import React, {FC} from "react";
+import React, {FC, useEffect} from "react";
 import ShopContent from "./components";
-const App: FC = () => {
+import {BrowserRouter, Route, Routes} from "react-router-dom";
+import AddProductForm from "./components/AddProductForm";
+import useGetProductsData from "./hooks/useGetProductsData";
 
+const App: FC = () => {
+    const {getProductsData} = useGetProductsData()
+    useEffect(()=>getProductsData(),[])
     return (
-            <ShopContent/>
+        <BrowserRouter basename={'/Product-Store-application/'}>
+            <Routes>
+                <Route path={'/'} element={<ShopContent/>}/>
+                <Route path={'/createNewProduct'} element={<AddProductForm/>}/>
+            </Routes>
+        </BrowserRouter>
     )
 }
 

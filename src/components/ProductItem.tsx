@@ -1,10 +1,13 @@
 import {FC} from "react";
 import {ProductData} from "../types/types";
+import {useAppDispatch} from "../hooks/useHooksRedux";
+import {deleteProduct} from "../store/productsSlice";
 
 type Props = {}
 
 const ProductItem: FC<ProductData> = (product) => {
     const {id, title, description, price, images, rating, stock, category} = product
+    const dispatch = useAppDispatch()
 
     return (
         <div className="wrapperProductItem">
@@ -16,6 +19,7 @@ const ProductItem: FC<ProductData> = (product) => {
             <p>{rating}</p>
             <p>{stock}</p>
             <p>{category}</p>
+            <button onClick={()=>dispatch(deleteProduct(id))}>Delete</button>
         </div>
     )
 }

@@ -88,6 +88,7 @@ $animationBase: linear 0.3s;
   height: 80vh;
   overflow: hidden;
   border-radius: $borderRadius10;
+  border-bottom: 10px solid $colorGray;
 
   .headerProducts {
     display: flex;
@@ -98,9 +99,18 @@ $animationBase: linear 0.3s;
     height: 50px;
     padding: 0 25px;
 
+    img{
+      width: 20px;
+      height: 20px;
+      margin: 0 5px;
+      cursor: pointer;
+   }
+
     h2 {
       @include styleText16-400;
       width: 10%;
+      display: flex;
+      align-items: center;
 
     }
   }
@@ -145,4 +155,21 @@ $animationBase: linear 0.3s;
 
   }
 
+}
+
+.wrapperCreateForm{
+  input{
+    border: 1px solid $colorGray ;
+  }
+  button{
+    background: $colorBlue;
+    padding: 20px;
+  }
+
+  form{
+    display: flex;
+    max-width: 1200px;
+    margin: 0 auto;
+    flex-direction: column;
+  }
 }
