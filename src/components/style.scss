@@ -113,6 +113,7 @@ $animationBase: linear 0.3s;
 
 .wrapperGoods {
   display: grid;
+  grid-template-rows: 80px 1fr;
   border-radius: $borderRadius10;
   height: 93vh;
   overflow: hidden;
