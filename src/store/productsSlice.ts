@@ -23,12 +23,12 @@ const productsSlice = createSlice({
         },
         sortBy(state, actions: PayloadAction<{ sortBy: string, isReverse: boolean }>) {
             switch (actions.payload.sortBy) {
-                case "id" :
-                    actions.payload.isReverse
-                        ? state.products = state.products.sort((a, b) => a.id - b.id)
-                        : state.products = state.products.sort((a, b) => b.id - a.id)
-
-                    break
+                // case "id" :
+                //     actions.payload.isReverse
+                //         ? state.products = state.products.sort((a, b) => a.id - b.id)
+                //         : state.products = state.products.sort((a, b) => b.id - a.id)
+                //
+                //     break
                 case "title" :
                     actions.payload.isReverse
                         ? state.products = state.products.sort((a, b) => b.title.toLowerCase().localeCompare(a.title.toLowerCase()))
