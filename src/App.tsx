@@ -7,6 +7,7 @@ import useGetProductsData from "./hooks/useGetProductsData";
 const App: FC = () => {
     const {getProductsData} = useGetProductsData()
     useEffect(()=>getProductsData(),[])
+
     return (
         <BrowserRouter basename={'/Product-Store-application/'}>
             <Routes>

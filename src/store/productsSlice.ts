@@ -18,17 +18,17 @@ const productsSlice = createSlice({
         addNewProduct(state, actions: PayloadAction<ProductData>) {
             state.products.unshift(actions.payload)
         },
-        deleteProduct(state, actions: PayloadAction<number | string>) {
+        deleteProduct(state, actions: PayloadAction<string | number>) {
             state.products = state.products.filter(product => product.id !== actions.payload)
         },
         sortBy(state, actions: PayloadAction<{ sortBy: string, isReverse: boolean }>) {
             switch (actions.payload.sortBy) {
-                // case "id" :
-                //     actions.payload.isReverse
-                //         ? state.products = state.products.sort((a, b) => a.id - b.id)
-                //         : state.products = state.products.sort((a, b) => b.id - a.id)
-                //
-                //     break
+                case "id" :
+                    actions.payload.isReverse
+                        ? state.products = state.products.sort((a, b) => a.id - b.id)
+                        : state.products = state.products.sort((a, b) => b.id - a.id)
+
+                    break
                 case "title" :
                     actions.payload.isReverse
                         ? state.products = state.products.sort((a, b) => b.title.toLowerCase().localeCompare(a.title.toLowerCase()))

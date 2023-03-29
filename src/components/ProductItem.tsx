@@ -12,14 +12,15 @@ const ProductItem: FC<ProductData> = (product) => {
     return (
         <div className="wrapperProductItem">
             <p className='id'>{id}</p>
-            <p>{title}</p>
-            <p>{description}</p>
+            <p className="title" >{title}</p>
+            <p className="description" >{description}</p>
             <p>{price}</p>
             <img src={images[0]} alt={title}/>
             <p>{rating}</p>
             <p>{stock}</p>
             <p>{category}</p>
-            <button onClick={()=>dispatch(deleteProduct(id))}>Delete</button>
+            <button onClick={()=>dispatch(deleteProduct(id))}>×</button>
+
         </div>
     )
 }

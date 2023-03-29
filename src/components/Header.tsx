@@ -1,18 +1,16 @@
-import React, {FC, useCallback} from "react";
-import {useNavigate} from "react-router-dom";
+import React, {FC} from "react";
+import Logo from "../assets/LOGO-2.png"
 
 
 const Header: FC = () => {
-    const navigate = useNavigate()
 
-    const handleNavigate = useCallback(() => {
-        navigate('/createNewProduct/')
-    }, [])
 
     return (
         <div className="wrapperHeader">
-            <h2>Products Shop</h2>
-            <button onClick={handleNavigate}>Add product</button>
+            <span>
+                            <img src={Logo} alt="name shop"/>
+
+            </span>
         </div>
     )
 }

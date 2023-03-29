@@ -1,5 +1,10 @@
 @import "../_resetStyle.scss";
 
+body {
+  background-color: #8EC5FC;
+  background-image: linear-gradient(62deg, #8EC5FC 0%, #E0C3FC 100%);
+}
+
 $fontRoboto: 'Roboto', sans-serif;
 
 $fontSize14: 14px;
@@ -14,7 +19,7 @@ $fontWeight500: 500;
 $fontWeight700: 700;
 
 $colorBlue: #4285f4;
-$colorGray: #9b9b9b;
+$colorGray: #d3d3d3;
 $colorWhite: #ffffff;
 $colorBlack: #000000;
 
@@ -33,7 +38,39 @@ $animationBase: linear 0.3s;
 .ShopWrapper {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 0 $padding10;
+  padding: 0 $padding10*3;
+
+  .headerShopWrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 $padding10;
+
+  }
+
+  .createNewProductBtn {
+    background: $colorBlue;
+    @include styleText16-400;
+    color: $colorWhite;
+    padding: 15px $padding10;
+    border-radius: $borderRadius10;
+    cursor: pointer;
+    position: fixed;
+    right: 2%;
+    bottom: 5%;
+    transition: $animationBase;
+
+
+    &:hover {
+      background: $colorWhite;
+      color: $colorBlack;
+      border: 1px solid $colorBlack;
+      transition: $animationBase;
+    }
+
+
+  }
+
 }
 
 .wrapperHeader {
@@ -42,40 +79,31 @@ $animationBase: linear 0.3s;
   align-items: center;
   height: 50px;
 
-  h2 {
-    color: $colorBlack;
-    font-family: $fontRoboto;
-    font-size: $fontSize24;
-    font-weight: $fontWeight700;
-  }
 
-  button {
-    background: $colorBlue;
-    @include styleText16-400;
-    color: $colorWhite;
-    padding: $padding10;
-    border-radius: $borderRadius10;
-    cursor: pointer;
+  span {
+    background: #fff;
+    margin-left: 5px;
+    padding: 5px 10px;
+    border-radius: 50%;
 
-    &:hover {
-      background: $colorWhite;
-      color: $colorBlack;
-      transition: $animationBase;
+    img {
+      max-height: 30px;
     }
-
   }
+
+
 }
 
 .wrapperSearch {
+  width: 300px;
 
   input {
-    border: 1px solid $colorGray;
-    width: 30%;
+    border: 1px solid $colorBlack;
+    width: 100%;
     height: 35px;
     border-radius: $borderRadius10;
     padding: $padding10;
     @include styleText16-400;
-    margin: 15px 0;
 
     &::placeholder {
       opacity: 0.5;
@@ -84,54 +112,62 @@ $animationBase: linear 0.3s;
 }
 
 .wrapperGoods {
-  width: 100%;
-  height: 80vh;
-  overflow: hidden;
+  display: grid;
   border-radius: $borderRadius10;
-  border-bottom: 10px solid $colorGray;
+  height: 93vh;
+  overflow: hidden;
+
 
   .headerProducts {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background: $colorGray;
-    color: $colorWhite;
-    height: 50px;
-    padding: 0 25px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 2fr 1fr 1fr 1fr 1fr 1fr 0.5fr;
+    grid-template-rows: 1fr;
+    grid-column-gap: 30px;
+    justify-items: center;
+    padding: 20px;
+    margin: 10px 10px 0 10px;
+    border-radius: $borderRadius10;
+    background: #8BC6EC;
 
-    img{
+
+    img {
       width: 20px;
       height: 20px;
       margin: 0 5px;
       cursor: pointer;
-   }
+    }
 
     h2 {
-      @include styleText16-400;
-      width: 10%;
       display: flex;
       align-items: center;
+      color: $colorBlack;
+      cursor: pointer;
+
 
     }
+
+
   }
 
   .productItems {
-    overflow: scroll;
-    display: flex;
-    flex-direction: column;
     height: 100%;
+    overflow: scroll;
 
   }
 
 }
 
 .wrapperProductItem {
-  height: 100px;
-  display: flex;
-  justify-content: space-between;
+  display: grid;
+  grid-template-columns: 1fr 1fr 2fr 1fr 1fr 1fr 1fr 1fr 0.5fr;
+  grid-column-gap: 30px;
   align-items: center;
-  padding: $padding10 25px;
-  border-bottom: 1px solid $colorBlack;
+  height: 80px;
+  justify-items: center;
+  padding: 0 $padding10;
+  background: $colorWhite;
+  margin: 10px;
+  border-radius: $borderRadius10;
   cursor: pointer;
 
   &:hover {
@@ -144,32 +180,145 @@ $animationBase: linear 0.3s;
   }
 
   img {
-    max-width: 30px;
-    max-height: 20px;
+    max-width: 70px;
+    max-height: 70px;
+    border-radius: $borderRadius10;
   }
 
   p {
     @include styleText16-400;
-    width: 10%;
-    overflow: hidden;
-
   }
+
+  .description {
+    width: 100%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  button {
+    border: 1px solid #8BC6EC;
+    @include styleText16-400;
+    padding: 5px $padding10;
+    border-radius: $borderRadius10;
+    cursor: pointer;
+
+    &:hover {
+      background-color: #ff3b3e;
+      background-image: linear-gradient(147deg, #ff3b3e 0%, #ff6225 74%);
+
+    }
+  }
+
 
 }
 
-.wrapperCreateForm{
-  input{
-    border: 1px solid $colorGray ;
-  }
-  button{
-    background: $colorBlue;
-    padding: 20px;
+.wrapperCreateForm {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: $padding10;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  .wrapperBtnBack {
+    width: 100%;
   }
 
-  form{
+
+  .contentForm {
     display: flex;
-    max-width: 1200px;
-    margin: 0 auto;
     flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    //max-width: 400px;
+    max-width: 1200px;
+
+
+    h2 {
+      @include styleText16-400;
+      font-size: $fontSize24;
+      color: $colorWhite;
+      border-bottom: 1px solid $colorBlack;
+      padding: $padding10;
+    }
+
+    .form {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+      gap: 25px;
+      padding-top: 20px;
+
+      label{
+        width: 48%;
+        height: 83px;
+        @include styleText16-400;
+
+        input {
+          border: 1px solid $colorBlack;
+          width: 100%;
+          height: 35px;
+          border-radius: $borderRadius10;
+          padding: $padding10;
+          @include styleText16-400;
+          margin: 5px 0;
+
+          &::placeholder {
+            opacity: 0.5;
+          }
+        }
+
+        .error {
+          color: orangered;
+        }
+
+      }
+
+    }
+
+
+  }
+
+
+  .buttonBack {
+    @include styleText16-400;
+    font-size: $fontSize14;
+    border: 1px solid $colorBlack;
+    border-radius: $borderRadius10;
+    padding: $padding10;
+    cursor: pointer;
+    transition: $animationBase;
+
+
+    &:hover {
+      background: $colorWhite;
+      transition: $animationBase;
+    }
+  }
+
+  .btnCreateProduct {
+    width: 150px;
+    background: $colorBlue;
+    @include styleText16-400;
+    font-size: $fontSize20;
+    color: $colorWhite;
+    padding: $padding10;
+    border-radius: $borderRadius10;
+    cursor: pointer;
+    transition: $animationBase;
+    text-align: center;
+    border: 1px solid $colorBlue;
+    margin-top: 45px;
+
+
+    &:hover {
+      background: $colorWhite;
+      color: $colorBlack;
+      border: 1px solid $colorBlack;
+      transition: $animationBase;
+    }
   }
 }

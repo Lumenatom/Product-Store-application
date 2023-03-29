@@ -18,17 +18,16 @@ const Goods: FC<Props> = ({valueSearch, isReverse, setIsReverse}) => {
         dispatch(sortBy({sortBy: e, isReverse: !isReverse}));
         setIsReverse(!isReverse)
     }
-
     return (
         <div className="wrapperGoods">
             <div className="headerProducts">
                 <h2 onClick={() => handleSort('id')}>ID <img src={SortIcon} alt=""/></h2>
                 <h2 onClick={() => handleSort('title')}>Title <img src={SortIcon} alt=""/></h2>
-                <h2 onClick={() => handleSort('description')}>Description <img src={SortIcon} alt=""/>
+                <h2 className="description" onClick={() => handleSort('description')}>Description <img src={SortIcon} alt=""/>
                 </h2>
                 <h2 onClick={() => handleSort('price')}>Price <img src={SortIcon}
                                                                    alt=""/></h2>
-                <h2>Image <img src={SortIcon} alt=""/></h2>
+                <h2>Image</h2>
                 <h2 onClick={() => handleSort('rating')}>Rating <img src={SortIcon} alt=""/></h2>
                 <h2 onClick={() => handleSort('stock')}>Stock <img src={SortIcon} alt=""/></h2>
                 <h2 onClick={() => handleSort('category')}>Category <img src={SortIcon} alt=""/></h2>
